@@ -35,6 +35,8 @@ public class Presenter_Categories implements ICategories_Presenter {
     @Override
     public void getCategories() {
 
+        view.showLoading();
+
         service.getCategorias().enqueue(new Callback<List<Categoria>>() {
             @Override
             public void onResponse(Call<List<Categoria>> call, Response<List<Categoria>> response) {

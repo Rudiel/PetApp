@@ -6,5 +6,5 @@ package com.narumasolutions.petapp.Utils;
 
 public class Util {
 
-    public static final String GLOBAL_URL = "";
+    public static final String GLOBAL_URL = "http://narumasolutions-001-site4.dtempurl.com/api/";
 }

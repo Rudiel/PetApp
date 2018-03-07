@@ -28,7 +28,9 @@ dependencies {
 
 
     //Butterknife
-    compile 'com.jakewharton:butterknife:8.6.0'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
 
     //Dependency Injection
     compile 'com.google.dagger:dagger:2.10'
@@ -41,5 +43,8 @@ dependencies {
 
     //RecyclerView
     compile 'com.android.support:recyclerview-v7:26.1.0'
+
+    //Design
+    compile 'com.android.support:design:26.1.0'
 
 }

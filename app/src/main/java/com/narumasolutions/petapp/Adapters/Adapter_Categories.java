@@ -5,7 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.narumasolutions.petapp.Fragments.Categories.ICategoryClickListener;
 import com.narumasolutions.petapp.Models.Response.Categoria;
 import com.narumasolutions.petapp.R;
 
@@ -19,10 +22,12 @@ public class Adapter_Categories extends RecyclerView.Adapter<Adapter_Categories.
 
     private List<Categoria> categoriaList;
     private Context context;
+    private ICategoryClickListener listener;
 
-    public Adapter_Categories(List<Categoria> categoriaList, Context context) {
+    public Adapter_Categories(List<Categoria> categoriaList, Context context, ICategoryClickListener listener) {
         this.categoriaList = categoriaList;
         this.context = context;
+        this.listener = listener;
     }
 
     @Override
@@ -33,7 +38,16 @@ public class Adapter_Categories extends RecyclerView.Adapter<Adapter_Categories.
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+
+        holder.tvCatItemTitle.setText(categoriaList.get(position).getNombre());
+
+        holder.ivCatItemBackground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onCategoryClicked(categoriaList.get(position));
+            }
+        });
 
     }
 
@@ -44,9 +58,16 @@ public class Adapter_Categories extends RecyclerView.Adapter<Adapter_Categories.
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
+        final TextView tvCatItemTitle;
+        ImageView ivCatItemBackground;
+        ImageView ivCatItemIcon;
 
         public ViewHolder(View itemView) {
             super(itemView);
+
+            tvCatItemTitle = itemView.findViewById(R.id.tvCatItemTitle);
+            ivCatItemBackground = itemView.findViewById(R.id.ivCateItemBackground);
+            ivCatItemIcon = itemView.findViewById(R.id.ivCateItemIcon);
         }
     }
 }

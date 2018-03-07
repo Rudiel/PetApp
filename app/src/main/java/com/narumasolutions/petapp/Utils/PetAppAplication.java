@@ -3,6 +3,7 @@ package com.narumasolutions.petapp.Utils;
 import android.app.Application;
 
 import com.narumasolutions.petapp.Dagger.AppComponent;
+import com.narumasolutions.petapp.Dagger.AppModule;
 import com.narumasolutions.petapp.Dagger.DaggerAppComponent;
 
 /**
@@ -23,6 +24,7 @@ public class PetAppAplication extends Application {
 
     protected AppComponent initDagger(PetAppAplication aplication) {
         return DaggerAppComponent.builder()
+                .appModule(new AppModule(aplication))
                 .build();
     }
 

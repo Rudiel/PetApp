@@ -3,11 +3,14 @@ package com.narumasolutions.petapp.Fragments.Categories;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
+import com.narumasolutions.petapp.Adapters.Adapter_Categories;
 import com.narumasolutions.petapp.Models.Response.Categoria;
 import com.narumasolutions.petapp.R;
 import com.narumasolutions.petapp.Utils.PetAppAplication;
@@ -24,7 +27,7 @@ import butterknife.ButterKnife;
  * Created by rudielavilaperaza on 3/5/18.
  */
 
-public class Fragment_Categories extends Fragment implements ICategories_View {
+public class Fragment_Categories extends Fragment implements ICategories_View, ICategoryClickListener {
 
     @Inject
     ICategories_Presenter presenter;
@@ -32,13 +35,16 @@ public class Fragment_Categories extends Fragment implements ICategories_View {
     @BindView(R.id.rvCategories)
     RecyclerView rvCategories;
 
+    @BindView(R.id.pbCategories)
+    ProgressBar pbCategories;
+
     private List<Categoria> categoriaList;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.layout_activity_container, container, false);
+        View v = inflater.inflate(R.layout.layout_fragment_categories, container, false);
 
         ((PetAppAplication) getActivity().getApplication()).getAppComponent().inject(this);
 
@@ -55,6 +61,10 @@ public class Fragment_Categories extends Fragment implements ICategories_View {
 
         categoriaList = new ArrayList<>();
 
+        rvCategories.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        rvCategories.setHasFixedSize(true);
+
         presenter.getCategories();
 
     }
@@ -62,22 +72,31 @@ public class Fragment_Categories extends Fragment implements ICategories_View {
 
     @Override
     public void showLoading() {
-
+        pbCategories.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
-
+        pbCategories.setVisibility(View.GONE);
     }
 
     @Override
     public void onCategoriesResult(List<Categoria> categorias) {
 
-        // rvCategories.setAdapter(new );
+        this.categoriaList = categorias;
+
+        rvCategories.setAdapter(new Adapter_Categories(categoriaList, getActivity(), this));
+
     }
 
     @Override
     public void onCategoriesError(String message) {
+        //TODO: show error message
+    }
+
+    @Override
+    public void onCategoryClicked(Categoria categoria) {
+        //TODO: get category id and pass to the other fragment
 
     }
 }

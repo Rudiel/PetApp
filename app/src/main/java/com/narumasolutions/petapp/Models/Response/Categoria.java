@@ -1,10 +1,12 @@
 package com.narumasolutions.petapp.Models.Response;
 
+import java.io.Serializable;
+
 /**
  * Created by rudielavilaperaza on 3/5/18.
  */
 
-public class Categoria {
+public class Categoria implements Serializable {
 
     private String id;
     private String nombre;

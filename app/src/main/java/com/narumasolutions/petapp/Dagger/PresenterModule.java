@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.narumasolutions.petapp.Fragments.Categories.ICategories_Presenter;
 import com.narumasolutions.petapp.Fragments.Categories.Presenter_Categories;
+import com.narumasolutions.petapp.Fragments.CategoryList.ICategoryList_Presenter;
+import com.narumasolutions.petapp.Fragments.CategoryList.Presenter_CategoryList;
 
 import javax.inject.Singleton;
 
@@ -20,6 +22,12 @@ public class PresenterModule {
     @Singleton
     ICategories_Presenter provideCategoriesPresenter(Context context) {
         return new Presenter_Categories(context);
+    }
+
+    @Provides
+    @Singleton
+    ICategoryList_Presenter provideCategoryListPresenter(Context context) {
+        return new Presenter_CategoryList(context);
     }
 
 }

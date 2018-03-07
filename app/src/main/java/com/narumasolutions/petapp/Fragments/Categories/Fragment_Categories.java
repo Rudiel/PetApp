@@ -11,11 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.narumasolutions.petapp.Activities.ContainerActivity;
 import com.narumasolutions.petapp.Adapters.Adapter_Categories;
 import com.narumasolutions.petapp.Creators.Creator_ConfirmDialog;
 import com.narumasolutions.petapp.Creators.Creator_OptionalDialog;
 import com.narumasolutions.petapp.Creators.IConfirmDialogListener;
 import com.narumasolutions.petapp.Creators.IOptionalDialogListener;
+import com.narumasolutions.petapp.Fragments.CategoryList.Fragment_CategoryList;
 import com.narumasolutions.petapp.Models.Response.Categoria;
 import com.narumasolutions.petapp.R;
 import com.narumasolutions.petapp.Utils.PetAppAplication;
@@ -114,22 +116,15 @@ public class Fragment_Categories extends Fragment implements ICategories_View, I
     public void onCategoryClicked(Categoria categoria) {
         //TODO: get category id and pass to the other fragment
 
-        new Creator_OptionalDialog().showOptionalDialog(getActivity(),
-                "Categories",
-                "This is an error",
-                "Entendido",
-                "Cancelar",
-                new IOptionalDialogListener() {
-                    @Override
-                    public void onPositiveClick(Dialog dialog) {
-                        dialog.dismiss();
-                    }
+        Fragment_CategoryList fragment = new Fragment_CategoryList();
 
-                    @Override
-                    public void onNegativeClick(Dialog dialog) {
-                        dialog.dismiss();
-                    }
-                }).show();
+        Bundle bundle = new Bundle();
+
+        bundle.putSerializable("Categoria", categoria);
+
+        fragment.setArguments(bundle);
+
+        ((ContainerActivity) getActivity()).setFragment(fragment, true);
 
     }
 }

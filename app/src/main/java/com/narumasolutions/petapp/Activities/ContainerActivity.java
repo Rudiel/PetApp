@@ -49,7 +49,7 @@ public class ContainerActivity extends AppCompatActivity {
     }
 
 
-    private void setFragment(Fragment fragment, boolean isBackStack) {
+    public void setFragment(Fragment fragment, boolean isBackStack) {
 
         if (isBackStack) {
             getSupportFragmentManager()

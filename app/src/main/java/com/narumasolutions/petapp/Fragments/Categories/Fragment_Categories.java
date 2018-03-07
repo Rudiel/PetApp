@@ -1,5 +1,6 @@
 package com.narumasolutions.petapp.Fragments.Categories;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.narumasolutions.petapp.Adapters.Adapter_Categories;
+import com.narumasolutions.petapp.Creators.Creator_ConfirmDialog;
+import com.narumasolutions.petapp.Creators.Creator_OptionalDialog;
+import com.narumasolutions.petapp.Creators.IConfirmDialogListener;
+import com.narumasolutions.petapp.Creators.IOptionalDialogListener;
 import com.narumasolutions.petapp.Models.Response.Categoria;
 import com.narumasolutions.petapp.R;
 import com.narumasolutions.petapp.Utils.PetAppAplication;
@@ -92,11 +97,39 @@ public class Fragment_Categories extends Fragment implements ICategories_View, I
     @Override
     public void onCategoriesError(String message) {
         //TODO: show error message
+
+        new Creator_ConfirmDialog().showConfirmDialog(getActivity(),
+                "Categories",
+                "This is an error",
+                new IConfirmDialogListener() {
+                    @Override
+                    public void onConfirmClikListener(Dialog dialog) {
+                        dialog.dismiss();
+                    }
+                }).show();
+
     }
 
     @Override
     public void onCategoryClicked(Categoria categoria) {
         //TODO: get category id and pass to the other fragment
+
+        new Creator_OptionalDialog().showOptionalDialog(getActivity(),
+                "Categories",
+                "This is an error",
+                "Entendido",
+                "Cancelar",
+                new IOptionalDialogListener() {
+                    @Override
+                    public void onPositiveClick(Dialog dialog) {
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void onNegativeClick(Dialog dialog) {
+                        dialog.dismiss();
+                    }
+                }).show();
 
     }
 }

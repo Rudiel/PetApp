@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <group android:id="@+id/gpList">
+
+        <item
+            android:id="@+id/mnList"
+            android:icon="@android:drawable/ic_btn_speak_now"
+            android:title="@string/menu_list" />
+    </group>
+
+    <group android:id="@+id/gpMap">
+
+        <item
+            android:id="@+id/mnMap"
+            android:icon="@android:drawable/ic_btn_speak_now"
+            android:title="@string/menu_map" />
+    </group>
+
+    <group android:id="@+id/gpTaxi">
+
+        <item
+            android:id="@+id/mnTaxi"
+            android:icon="@android:drawable/ic_btn_speak_now"
+            android:title="@string/menu_taxis" />
+    </group>
+
+
 </menu>

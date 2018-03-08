@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PetApp</string>
+
+    <!--Menu-->
+    <string name="menu_list">Listado</string>
+    <string name="menu_map">Mapa</string>
+    <string name="menu_taxis">Taxis</string>
+
+
 </resources>

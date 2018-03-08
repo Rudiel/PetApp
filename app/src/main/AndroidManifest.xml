@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+
     <application
         android:name=".Utils.PetAppAplication"
         android:allowBackup="true"
@@ -23,6 +24,11 @@
 
         <activity android:name=".Activities.Login.LoginActivity" />
         <activity android:name=".Activities.Register.RegisterActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyChpPfAmDk-uZtUeZlTnhlOrkLxQq6agIg"/>
+
 
     </application>
 

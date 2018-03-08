@@ -10,8 +10,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.narumasolutions.petapp.Fragments.Categories.Fragment_Categories;
+import com.narumasolutions.petapp.Fragments.Map.Fragment_Map;
+import com.narumasolutions.petapp.Fragments.Taxis.Fragment_Taxis;
 import com.narumasolutions.petapp.R;
 
 import butterknife.BindView;
@@ -33,6 +37,10 @@ public class ContainerActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
+    private TextView tvUserName;
+
+    private ImageView ivUserImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +51,12 @@ public class ContainerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         setMenuActions();
+
+        tvUserName = nvMain.getHeaderView(0).findViewById(R.id.tvMenuUserName);
+
+        ivUserImage = nvMain.getHeaderView(0).findViewById(R.id.ivMenuUserProfile);
+
+        tvUserName.setText("Rudiel Avila");
 
         setFragment(new Fragment_Categories(), false);
 
@@ -73,6 +87,23 @@ public class ContainerActivity extends AppCompatActivity {
         nvMain.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.mnList:
+                        //TODO: set list places fragment
+                        setFragment(new Fragment_Categories(), false);
+                        dlContainer.closeDrawers();
+                        break;
+                    case R.id.mnMap:
+                        //TODO: set map fragment
+                        setFragment(new Fragment_Map(), false);
+                        dlContainer.closeDrawers();
+                        break;
+                    case R.id.mnTaxi:
+                        //TODO set taxi list fragment
+                        setFragment(new Fragment_Taxis(), false);
+                        dlContainer.closeDrawers();
+                        break;
+                }
                 return false;
             }
         });

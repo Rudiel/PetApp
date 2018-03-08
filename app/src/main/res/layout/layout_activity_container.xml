@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dlContainer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
- >
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -45,9 +44,9 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:textAlignment="center"
-        app:menu="@menu/main_menu"
+        app:headerLayout="@layout/layout_menu_header"
         app:itemIconTint="@color/colorAccent"
         app:itemTextColor="@color/colorAccent"
-       />
+        app:menu="@menu/main_menu" />
 
 </android.support.v4.widget.DrawerLayout>

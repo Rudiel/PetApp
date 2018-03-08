@@ -85,7 +85,7 @@ public class Fragment_Taxis extends Fragment implements ITaxis_View, ITaxiClickL
 
         this.taxisList = taxiList;
 
-        rvTaxis.setAdapter(new Adpater_Taxis(getActivity(), this.taxisList));
+        rvTaxis.setAdapter(new Adpater_Taxis(getActivity(), this.taxisList, this ));
 
     }
 

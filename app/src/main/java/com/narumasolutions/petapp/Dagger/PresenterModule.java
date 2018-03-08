@@ -8,6 +8,9 @@ import com.narumasolutions.petapp.Fragments.CategoryList.ICategoryList_Presenter
 import com.narumasolutions.petapp.Fragments.CategoryList.Presenter_CategoryList;
 import com.narumasolutions.petapp.Fragments.Map.IMap_Presenter;
 import com.narumasolutions.petapp.Fragments.Map.Presenter_Map;
+import com.narumasolutions.petapp.Fragments.TaxiDetail.ITaxiDetail_Presenter;
+import com.narumasolutions.petapp.Fragments.TaxiDetail.ITaxiDetail_View;
+import com.narumasolutions.petapp.Fragments.TaxiDetail.Presenter_TaxiDetail;
 import com.narumasolutions.petapp.Fragments.Taxis.ITaxis_Presenter;
 import com.narumasolutions.petapp.Fragments.Taxis.Presenter_Taxis;
 
@@ -44,6 +47,12 @@ public class PresenterModule {
     @Singleton
     ITaxis_Presenter provideTaxisPresenter(Context context) {
         return new Presenter_Taxis(context);
+    }
+
+    @Provides
+    @Singleton
+    ITaxiDetail_Presenter provideTaxiDetailPresenter(Context context) {
+        return new Presenter_TaxiDetail(context);
     }
 
 

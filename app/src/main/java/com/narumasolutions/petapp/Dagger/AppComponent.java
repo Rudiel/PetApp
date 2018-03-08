@@ -6,6 +6,8 @@ import com.narumasolutions.petapp.Fragments.CategoryList.Fragment_CategoryList;
 import com.narumasolutions.petapp.Fragments.CategoryList.Presenter_CategoryList;
 import com.narumasolutions.petapp.Fragments.Map.Fragment_Map;
 import com.narumasolutions.petapp.Fragments.Map.Presenter_Map;
+import com.narumasolutions.petapp.Fragments.TaxiDetail.Fragment_TaxiDetail;
+import com.narumasolutions.petapp.Fragments.TaxiDetail.Presenter_TaxiDetail;
 import com.narumasolutions.petapp.Fragments.Taxis.Fragment_Taxis;
 import com.narumasolutions.petapp.Fragments.Taxis.Presenter_Taxis;
 
@@ -43,6 +45,12 @@ public interface AppComponent {
     void inject(Fragment_Taxis fragment);
 
     void inject(Presenter_Taxis target);
+
+    //Taxi detail
+
+    void inject(Fragment_TaxiDetail fragment);
+
+    void inject(Presenter_TaxiDetail target);
 
 
 }

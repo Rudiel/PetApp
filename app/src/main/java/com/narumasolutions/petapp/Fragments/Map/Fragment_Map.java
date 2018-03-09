@@ -48,7 +48,6 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback, IMap_V
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
     }
 
     @Override

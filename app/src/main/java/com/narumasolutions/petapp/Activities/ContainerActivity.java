@@ -1,8 +1,10 @@
 package com.narumasolutions.petapp.Activities;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -90,16 +92,19 @@ public class ContainerActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.mnList:
                         //TODO: set list places fragment
+                        clearBackStack();
                         setFragment(new Fragment_Categories(), false);
                         dlContainer.closeDrawers();
                         break;
                     case R.id.mnMap:
                         //TODO: set map fragment
+                        clearBackStack();
                         setFragment(new Fragment_Map(), false);
                         dlContainer.closeDrawers();
                         break;
                     case R.id.mnTaxi:
                         //TODO set taxi list fragment
+                        clearBackStack();
                         setFragment(new Fragment_Taxis(), false);
                         dlContainer.closeDrawers();
                         break;
@@ -122,6 +127,25 @@ public class ContainerActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
         actionBarDrawerToggle.syncState();
+
+    }
+
+    @SuppressLint("RestrictedApi")
+    public void clearBackStack() {
+       /* if (getSupportFragmentManager().getFragments() != null)
+            for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+                try {
+                    getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }*/
+
+        FragmentManager fm = getSupportFragmentManager();
+        for (int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+            fm.popBackStack();
+        }
+
 
     }
 }

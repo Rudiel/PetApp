@@ -5,4 +5,6 @@ package com.narumasolutions.petapp.Fragments.Map;
  */
 
 public interface IMap_Presenter {
+
+    void setView(IMap_View view);
 }

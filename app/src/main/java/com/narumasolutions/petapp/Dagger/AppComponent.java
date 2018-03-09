@@ -1,5 +1,9 @@
 package com.narumasolutions.petapp.Dagger;
 
+import com.narumasolutions.petapp.Activities.Login.LoginActivity;
+import com.narumasolutions.petapp.Activities.Login.PresenterLogin;
+import com.narumasolutions.petapp.Activities.Register.PresenterRegister;
+import com.narumasolutions.petapp.Activities.Register.RegisterActivity;
 import com.narumasolutions.petapp.Fragments.Categories.Fragment_Categories;
 import com.narumasolutions.petapp.Fragments.Categories.Presenter_Categories;
 import com.narumasolutions.petapp.Fragments.CategoryList.Fragment_CategoryList;
@@ -36,9 +40,9 @@ public interface AppComponent {
 
     //Map
 
-   /* void inject(Fragment_Map fragment);
+    void inject(Fragment_Map fragment);
 
-    void inject(Presenter_Map target);*/
+    void inject(Presenter_Map target);
 
     //Taxis
 
@@ -52,5 +56,16 @@ public interface AppComponent {
 
     void inject(Presenter_TaxiDetail target);
 
+    //Login
+
+    void inject(LoginActivity activity);
+
+    void inject(PresenterLogin target);
+
+    //Register
+
+    void inject(RegisterActivity activity);
+
+    void inject(PresenterRegister target);
 
 }

@@ -11,6 +11,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.narumasolutions.petapp.R;
+import com.narumasolutions.petapp.Utils.PetAppAplication;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,10 +27,17 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback, IMap_V
     @BindView(R.id.map)
     MapView mapView;
 
+    @Inject
+    IMap_Presenter presenter;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.layout_fragment_map, container, false);
+
+        ((PetAppAplication) getActivity().getApplication()).getAppComponent().inject(this);
+
+        presenter.setView(this);
 
         ButterKnife.bind(this, v);
 

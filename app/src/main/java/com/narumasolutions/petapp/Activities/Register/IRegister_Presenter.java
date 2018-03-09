@@ -5,4 +5,6 @@ package com.narumasolutions.petapp.Activities.Register;
  */
 
 public interface IRegister_Presenter {
+
+    void setView(IRegister_View view);
 }

@@ -5,4 +5,9 @@ package com.narumasolutions.petapp.Activities.Register;
  */
 
 public interface IRegister_View {
+
+    void showLoading();
+
+    void hideLoading();
+
 }

@@ -2,6 +2,10 @@ package com.narumasolutions.petapp.Dagger;
 
 import android.content.Context;
 
+import com.narumasolutions.petapp.Activities.Login.ILogin_Presenter;
+import com.narumasolutions.petapp.Activities.Login.PresenterLogin;
+import com.narumasolutions.petapp.Activities.Register.IRegister_Presenter;
+import com.narumasolutions.petapp.Activities.Register.PresenterRegister;
 import com.narumasolutions.petapp.Fragments.Categories.ICategories_Presenter;
 import com.narumasolutions.petapp.Fragments.Categories.Presenter_Categories;
 import com.narumasolutions.petapp.Fragments.CategoryList.ICategoryList_Presenter;
@@ -37,11 +41,11 @@ public class PresenterModule {
         return new Presenter_CategoryList(context);
     }
 
-    /*@Provides
+    @Provides
     @Singleton
     IMap_Presenter provideMapPresenter(Context context) {
         return new Presenter_Map(context);
-    }*/
+    }
 
     @Provides
     @Singleton
@@ -53,6 +57,18 @@ public class PresenterModule {
     @Singleton
     ITaxiDetail_Presenter provideTaxiDetailPresenter(Context context) {
         return new Presenter_TaxiDetail(context);
+    }
+
+    @Provides
+    @Singleton
+    ILogin_Presenter provideLoginPresenter(Context context) {
+        return new PresenterLogin(context);
+    }
+
+    @Provides
+    @Singleton
+    IRegister_Presenter provideRegisterPresenter(Context context) {
+        return new PresenterRegister(context);
     }
 
 

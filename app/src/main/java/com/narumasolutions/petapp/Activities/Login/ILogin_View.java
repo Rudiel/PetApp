@@ -5,4 +5,10 @@ package com.narumasolutions.petapp.Activities.Login;
  */
 
 public interface ILogin_View {
+
+    void showLoading();
+
+    void hideLoading();
+
+
 }

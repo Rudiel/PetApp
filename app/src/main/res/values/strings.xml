@@ -5,6 +5,11 @@
     <string name="menu_list">Listado</string>
     <string name="menu_map">Mapa</string>
     <string name="menu_taxis">Taxis</string>
+    <string name="menu_logout">Logout</string>
+
+
+    <!--Logout-->
+    <string name="logout_message">¿Estas seguro de que quieres cerrar la sesión?</string>
 
 
 </resources>

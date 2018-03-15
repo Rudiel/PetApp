@@ -12,9 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.narumasolutions.petapp.Activities.ContainerActivity;
 import com.narumasolutions.petapp.Adapters.Adapter_CategoriesList;
 import com.narumasolutions.petapp.Creators.Creator_ConfirmDialog;
 import com.narumasolutions.petapp.Creators.IConfirmDialogListener;
+import com.narumasolutions.petapp.Fragments.PlaceDetail.Fragment_PlaceDetail;
 import com.narumasolutions.petapp.Models.Response.Categoria;
 import com.narumasolutions.petapp.Models.Response.Place;
 import com.narumasolutions.petapp.R;
@@ -122,6 +124,15 @@ public class Fragment_CategoryList extends Fragment implements ICategoryList_Vie
 
     @Override
     public void onPlaceClickListener(Place place) {
-        Toast.makeText(getActivity(), place.getNombre(), Toast.LENGTH_SHORT).show();
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Place", place);
+
+        Fragment_PlaceDetail detail = new Fragment_PlaceDetail();
+
+        detail.setArguments(bundle);
+
+        ((ContainerActivity) getActivity()).setFragment(detail, true);
+
     }
 }

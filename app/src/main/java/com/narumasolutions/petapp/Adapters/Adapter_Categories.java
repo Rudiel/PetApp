@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.narumasolutions.petapp.Fragments.Categories.ICategoryClickListener;
 import com.narumasolutions.petapp.Models.Response.Categoria;
 import com.narumasolutions.petapp.R;
@@ -41,6 +42,8 @@ public class Adapter_Categories extends RecyclerView.Adapter<Adapter_Categories.
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
         holder.tvCatItemTitle.setText(categoriaList.get(position).getNombre());
+
+        Glide.with(context).load(categoriaList.get(position).getImagen()).centerCrop().into(holder.ivCatItemBackground);
 
         holder.ivCatItemBackground.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -38,6 +38,7 @@ public class Creator_OptionalDialog {
         tvTitle.setText(title);
 
         if (message != null) {
+            tvMessage.setVisibility(View.VISIBLE);
             tvMessage.setText(message);
         }
 

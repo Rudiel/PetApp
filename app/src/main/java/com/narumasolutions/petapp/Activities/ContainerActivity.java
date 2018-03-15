@@ -1,6 +1,7 @@
 package com.narumasolutions.petapp.Activities;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.narumasolutions.petapp.Creators.Creator_OptionalDialog;
+import com.narumasolutions.petapp.Creators.IOptionalDialogListener;
 import com.narumasolutions.petapp.Fragments.Categories.Fragment_Categories;
 import com.narumasolutions.petapp.Fragments.Map.Fragment_Map;
 import com.narumasolutions.petapp.Fragments.Taxis.Fragment_Taxis;
@@ -108,6 +111,10 @@ public class ContainerActivity extends AppCompatActivity {
                         setFragment(new Fragment_Taxis(), false);
                         dlContainer.closeDrawers();
                         break;
+                    case R.id.mnLogout:
+                        dlContainer.closeDrawers();
+                        doLogout();
+                        break;
                 }
                 return false;
             }
@@ -147,5 +154,28 @@ public class ContainerActivity extends AppCompatActivity {
         }
 
 
+    }
+
+
+    private void doLogout() {
+        new Creator_OptionalDialog().showOptionalDialog(
+                this,
+                "Logout",
+                getString(R.string.logout_message),
+                "SI",
+                "NO",
+                new IOptionalDialogListener() {
+                    @Override
+                    public void onPositiveClick(Dialog dialog) {
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void onNegativeClick(Dialog dialog) {
+                        dialog.dismiss();
+                    }
+                }
+
+        ).show();
     }
 }

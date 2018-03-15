@@ -1,10 +1,12 @@
 package com.narumasolutions.petapp.Models.Response;
 
+import java.io.Serializable;
+
 /**
  * Created by rudielavilaperaza on 3/7/18.
  */
 
-public class Place {
+public class Place implements Serializable {
 
     private String nombre;
     private String telefono;

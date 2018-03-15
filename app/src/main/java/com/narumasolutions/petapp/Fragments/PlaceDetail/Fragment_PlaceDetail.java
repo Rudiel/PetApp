@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.narumasolutions.petapp.Models.Response.Categoria;
+import com.narumasolutions.petapp.Models.Response.Place;
 import com.narumasolutions.petapp.R;
 
 import butterknife.ButterKnife;
@@ -21,7 +23,7 @@ public class Fragment_PlaceDetail extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.layout_fragment_categories, container, false);
+        View v = inflater.inflate(R.layout.layout_fragment_placedetail, container, false);
 
         ButterKnife.bind(this, v);
 
@@ -32,6 +34,15 @@ public class Fragment_PlaceDetail extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        Place place = null;
+
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            place = (Place) bundle.getSerializable("Place");
+        }
+
+        place.getCategoria();
     }
 
 }

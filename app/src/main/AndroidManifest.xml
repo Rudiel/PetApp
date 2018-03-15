@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.ContainerActivity">
+
+        <activity android:name=".Activities.Login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,13 +22,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Activities.ContainerActivity" />
 
-        <activity android:name=".Activities.Login.LoginActivity" />
         <activity android:name=".Activities.Register.RegisterActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyChpPfAmDk-uZtUeZlTnhlOrkLxQq6agIg"/>
+            android:value="AIzaSyChpPfAmDk-uZtUeZlTnhlOrkLxQq6agIg" />
 
 
     </application>

@@ -19,6 +19,9 @@ import butterknife.ButterKnife;
 
 public class Fragment_PlaceDetail extends Fragment {
 
+    private Place place;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,7 +38,6 @@ public class Fragment_PlaceDetail extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Place place = null;
 
         Bundle bundle = this.getArguments();
         if (bundle != null) {

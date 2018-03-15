@@ -10,5 +10,9 @@ public interface ILogin_View {
 
     void hideLoading();
 
+    void onLoginSuccess(String response);
+
+    void onLoginError(String error);
+
 
 }

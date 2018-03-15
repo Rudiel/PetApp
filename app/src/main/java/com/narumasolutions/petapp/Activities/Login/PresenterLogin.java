@@ -2,6 +2,7 @@ package com.narumasolutions.petapp.Activities.Login;
 
 import android.content.Context;
 
+import com.narumasolutions.petapp.Models.Response.User;
 import com.narumasolutions.petapp.Services.Interfaces.IPetAppServices;
 import com.narumasolutions.petapp.Utils.PetAppAplication;
 
@@ -27,5 +28,10 @@ public class PresenterLogin implements ILogin_Presenter {
     @Override
     public void setView(ILogin_View view) {
         this.view = view;
+    }
+
+    @Override
+    public void doLogin(User user) {
+        view.onLoginSuccess("done");
     }
 }
